@@ -26,18 +26,22 @@ sudo apt-get install python-smbus
 ```
 sudo apt-get install i2c-tools
 ```
-#### Installing Git
-```
-sudo apt-get install git
-```
-#### Installing Node
-```
-sudo apt-get install nodejs
-```
 
 #### Installing npm
 ```
 sudo apt-get install npm
+```
+
+#### Installing Git, build essentials and python-dev
+```
+sudo apt-get install git build-essentials python-dev
+```
+#### Installing the drivers for the Adafruit PCA9685
+```
+cd ~
+git clone https://github.com/adafruit/Adafruit_Python_PCA9685.git
+cd Adafruit_Python_PCA9685
+sudo python setup.py install
 ```
 
 #### Check if the raspberry can find the Adafruit board
@@ -55,8 +59,6 @@ sudo nano /etc/modprobe.b/taspi-blacklist.conf
 ```
 if you see the line 'blacklist i2c-bcm2708' put a # in front of it.
 
-
-
 ### Getting Apache (webserver)
 #### install Apache
 ```
@@ -69,10 +71,17 @@ sudo chmod 777 /var/www/html
 
 ### Setting up the Node server
 #### preparations
+
+##### Installing Node
 ```
-cd /var/www/html
+cd /var/www/html/
+sudo apt-get install nodejs
+```
+remove the old index file
+```
 sudo rm index.html
 ```
+
 #### Installing the node server components
 ```
 sudo npm init
