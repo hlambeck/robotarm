@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>Robot Controller</title>
+
+        <!-- Bootstrap -->
+        <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
+
+        <!-- custom css -->
+        <link type="text/css" href="css/range.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <!-- the image -->
+            <div class="row hidden-sm hidden-xs">
+                <div class="col-xs-12 image_arm">
+                    <input value="300" type="range" data-index="0" min="300" max="500" step="1"/>
+                    <input value="150" type="range" data-index="1" min="150" max="500" step="1"/>
+                    <input value="200" type="range" data-index="2" min="200" max="500" step="1"/>
+                    <input value="105" type="range" data-index="3" min="105" max="500" step="1"/>
+                    <img src="bg.png" alt="Robot" class="img-responsive" />
+                </div>
+            </div>
+
+            <!-- mobile version -->
+            <div class="row hidden-md hidden-lg">
+                <div class="col-xs-12 col-sm-6">
+                    <h4>Servo 0</h4>
+                    <input name="servo0" type="range" data-index="0" min="300" max="500" step="1"/>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h4>Servo 1</h4>
+                    <input type="range" data-index="1" min="150" max="500" step="1"/>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h4>Servo 2</h4>
+                    <input type="range" data-index="2" min="200" max="500" step="1"/>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <h4>Servo 3</h4>
+                    <input type="range" data-index="3" min="105" max="500" step="1"/>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascx" src="js/bootstrap.min.js"></script>
+        <script>
+            var socket = io();
+
+            //on slider change
+            $("input[type=range]").change(function () {
+                //set both sliders to the same value
+                var index = $(this).data('index'); //get index value
+                $("input[type=range][data-index='" + index + "']").val($(this).val());//set value to the same value
+                socket.emit('move', $(this).data("index"), $(this).val()) //send to the server/raspberry
+            });
+
+            /* sizing the input elements */
+            //calculate the width of every input
+            var image = $('.img-responsive');
+            _resize();
+
+            $(window).resize(function () {
+                _resize();
+            });
+
+
+            /* set the new size of the range value relative to the size of the image */
+            function _resize() {
+                var inputwidth = (image.width() / 4);
+
+                $(".image_arm input[data-index='0']").css({
+                    'width': inputwidth
+                });
+                $(".image_arm input[data-index='1']").css({
+                    'width': inputwidth
+                });
+                $(".image_arm input[data-index='2']").css({
+                    'width': inputwidth
+                });
+                $(".image_arm input[data-index='3']").css({
+                    'width': inputwidth
+                });
+            }
+        </script>
+    </body>
+</html>
