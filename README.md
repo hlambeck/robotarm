@@ -121,11 +121,10 @@ sudo mv /var/www/html/robot ~
 ## Authors
 
 * **Henk Lambeck** - *Initial work* - [hlambeck](https://github.com/hlambeck)
+* **Tammo Lambeck** - *added the robot file* 
 
 See also the list of [contributors](https://github.com/hlambeck/robotarm/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-
