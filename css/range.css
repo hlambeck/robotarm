@@ -116,16 +116,24 @@ output:after {
 /* on bigger screen */
 .image_arm input{
     position: absolute !important;
-}.image_arm input[data-index='0']{
+}
+
+.image_arm input[data-index='0']{
     margin-top: 100px;
     right: 20px;
-}.image_arm input[data-index='1']{
+}
+
+.image_arm input[data-index='1']{
     margin-top: 100px;
     left: 100px;
-}.image_arm input[data-index='2']{
-    bottom: 450px;
+}
+
+.image_arm input[data-index='2']{
+    margin-top: 370px;
     left: 100px;
-}.image_arm input[data-index='3']{
-    bottom: 235px;
-    right: 220px;
+}
+
+.image_arm input[data-index='3']{
+    margin-top: 590px;
+    right: 200px;
 }
