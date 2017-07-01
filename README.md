@@ -55,7 +55,7 @@ One of these 2 will show some numbers in a grid. of it is all empty do the next 
 
 #### Remove the i2c-tools from the blacklist
 ```
-sudo nano /etc/modprobe.b/taspi-blacklist.conf
+sudo nano /etc/modprobe.b/raspi-blacklist.conf
 ```
 if you see the line 'blacklist i2c-bcm2708' put a # in front of it.
 
