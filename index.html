@@ -81,18 +81,23 @@
             /* set the new size of the range value relative to the size of the image */
             function _resize() {
                 var inputwidth = (image.width() / 4);
+                var inputmargintop = (image.height() / 25);
 
                 $(".image_arm input[data-index='0']").css({
-                    'width': inputwidth
+                    'width': inputwidth,
+                    'margin-top': (inputmargintop * 3)
                 });
                 $(".image_arm input[data-index='1']").css({
-                    'width': inputwidth
+                    'width': inputwidth,
+                    'margin-top': (inputmargintop * 3)
                 });
                 $(".image_arm input[data-index='2']").css({
-                    'width': inputwidth
+                    'width': inputwidth,
+                    'margin-top': (inputmargintop * 11)
                 });
                 $(".image_arm input[data-index='3']").css({
-                    'width': inputwidth
+                    'width': inputwidth,
+                    'margin-top': (inputmargintop * 17)
                 });
             }
         </script>

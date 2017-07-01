@@ -32,21 +32,19 @@ M3_min = 105
 M3_max = 500
 
 
+# set the value of the correct servo
+if int(index) == 0:
+    if int(value) >= M0_min and int(value) <= M0_max:
+        pwm.set_pwm(int(index), 0, int(value))
 
+if int(index) == 1:
+    if int(value) >= M1_min and int(value) <= M1_max:
+        pwm.set_pwm(int(index), 0, int(value))
 
+if int(index) == 2:
+    if int(value) >= M2_min and int(value) <= M2_max:
+        pwm.set_pwm(int(index), 0, int(value))
 
-#print('Moving servo on channel ' + index + ' to value ' + value)
-pwm.set_pwm(int(index), 0, int(value))
-
-    #while True:
-    #    # Move servo on channel O between extremes.
-    #    print('min')
-    #    pwm.set_pwm(0, 0, servo_min)
-    #
-    #    #set_servo_pulse(0, 1.5)
-    #
-    #    time.sleep(5)
-    #    print('max')
-    #    pwm.set_pwm(0, 0, servo_max)
-    #
-    #    time.sleep(1)
+if int(index) == 3:
+    if int(value) >= M3_min and int(value) <= M3_max:
+        pwm.set_pwm(int(index), 0, int(value))
