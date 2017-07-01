@@ -96,7 +96,19 @@ sudo chmod -R 777 /var/www/html
 
 to automate the startup of the server type the following command
 ```
-sudo ..................
+sudo update-rc.d apache2 defaults
+```
+
+#### Starting the script
+You could always type 
+```
+sudo node /var/www/html/app.js &
+```
+
+or move a file so you can type '~/robot' to start the script
+To do so just run the following command
+```
+sudo mv /var/www/html/robot ~
 ```
 
 ## Built With
