@@ -32,9 +32,9 @@ sudo apt-get install i2c-tools
 sudo apt-get install npm
 ```
 
-#### Installing Git, build essentials and python-dev
+#### Installing Git, build essential and python-dev
 ```
-sudo apt-get install git build-essentials python-dev
+sudo apt-get install git build-essential python-dev
 ```
 #### Installing the drivers for the Adafruit PCA9685
 ```
